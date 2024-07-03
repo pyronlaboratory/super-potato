@@ -1,0 +1,275 @@
+[
+  {
+    "name": "test.java",
+    "path": "test.java",
+    "content": {
+      "structured": {
+        "description": "a game of minesweeper and solves it using a recursive backtracker algorithm. It uses the `Grid` class from the `java.util.Arrays` package to represent the game grid as an array of integers, where each integer represents a cell on the grid with a value of either 0 (empty) or -1 (mine). The code defines several methods for solving the game, including `solve()` which takes in the row and column of a given cell and returns true if the cell is mineswept and false otherwise. It also includes a `printResult()` method to print out the final state of the grid after the game has been solved. Overall, the code provides an efficient solution for solving the classic game of minesweeper using a backtracker algorithm.",
+        "items": [
+          {
+            "id": "7fd13ce5-1856-02b8-8a4d-2362ee414344",
+            "ancestors": [],
+            "description": "Is a solver for the classic Sudoku puzzle game. It takes in a 2D grid and finds a solution to the game by iterating over neighboring cells of a given cell and increasing the value of that cell if the combined values of the two cells don't exceed the total value. The class also provides methods for counting the number of non-zero cells on the same row and column as a given cell, checking if a cell has no alive neighbors, and printing the final solution to the grid.",
+            "name": "KnightsTour",
+            "location": {
+              "start": 3,
+              "insert": 3,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "class",
+            "length": 214,
+            "docLength": null
+          },
+          {
+            "id": "41a1a45a-7f89-a2af-084e-52b3550d519f",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "In Java loops through a collection of nodes, counting the number of non-null items and returning the count.",
+            "params": [],
+            "returns": {
+              "type_name": "int",
+              "description": "the number of elements in the linked list, up to a maximum value.",
+              "complex_type": false
+            },
+            "usage": {
+              "language": "java",
+              "code": "public class LinkedList<E> implements List<E> {\n    private Node<E> first;\n    private int size = 0;\n\n    public E get(int index) {\n        if (index < 0 || index >= size()) {\n            throw new IndexOutOfBoundsException(\"Index: \" + index);\n        }\n\n        // This loop finds the node at the given index.\n        Node<E> current = first;\n        for (int i = 0; i < index; i++) {\n            current = current.next;\n        }\n\n        return current.item;\n    }\n\n    public int size() {\n        // This method calls itself recursively until it reaches the end of the linked list.\n        if (first == null) {\n            return 0;\n        } else {\n            return first.next.size();\n        }\n    }\n}\n",
+              "description": "\nIn this example, the `get()` method returns the item at the given index. The `size()` method returns the size of the list by calling itself recursively until it reaches the end of the linked list."
+            },
+            "name": "size",
+            "location": {
+              "start": 4,
+              "insert": 4,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 13,
+            "docLength": null
+          },
+          {
+            "id": "92590c8a-0aa6-cab3-124f-418c38aaed08",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "Creates a two-dimensional grid of size `base x base`, initializes it with negative values, and then uses randomization to place some positive values on the grid. It then uses a recursive function `solve` to check if there is a path from a random row and column to the top-left corner of the grid, and prints the result.",
+            "params": [
+              {
+                "name": "args",
+                "type_name": "String[]",
+                "description": "0 or more command-line arguments passed to the Java program when it is run, which are ignored in this case and have no effect on the function's behavior.\n\n* Length: `args.length` is equal to 0 or 1.\n* Elements: If `args.length` is greater than 0, each element in the array is a string representing an optional command-line argument.",
+                "complex_type": true
+              }
+            ],
+            "name": "main",
+            "location": {
+              "start": 31,
+              "insert": 31,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 23,
+            "docLength": null
+          },
+          {
+            "id": "3b678e82-6f32-938a-514b-66919aef670b",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "Determines whether a given cell is a winner in the game of Sudoku by recursively traversing the grid, sorting neighboring cells based on their values, and updating the cell value until a solution is found or no more solutions exist.",
+            "params": [
+              {
+                "name": "row",
+                "type_name": "int",
+                "description": "2D coordinate of a cell in the grid, which is used to determine the neighbors of that cell and to update the value of the cell during the solver process.",
+                "complex_type": false
+              },
+              {
+                "name": "column",
+                "type_name": "int",
+                "description": "2nd dimension of the grid, which is used to determine the neighbors of the current cell and sort them for further processing.",
+                "complex_type": false
+              },
+              {
+                "name": "count",
+                "type_name": "int",
+                "description": "2D position's current total number of occupied cells, which is used to determine if a solution exists at that position.",
+                "complex_type": false
+              }
+            ],
+            "returns": {
+              "type_name": "boolean",
+              "description": "a boolean value indicating whether the game is solved.",
+              "complex_type": false
+            },
+            "name": "solve",
+            "location": {
+              "start": 79,
+              "insert": 55,
+              "offset": " ",
+              "indent": 4,
+              "comment": {
+                "start": 54,
+                "end": 77
+              }
+            },
+            "item_type": "method",
+            "length": 25,
+            "docLength": 23
+          },
+          {
+            "id": "739cbe3d-5455-e6b5-9744-5436a24becbb",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "Computes and returns a list of neighboring cells for a given cell in a grid, based on the movements allowed by the game. It iterates over possible moves and checks if the new cell has any neighbors with value 0, and if so, adds the new cell's coordinates and number of neighboring cells to the list.",
+            "params": [
+              {
+                "name": "row",
+                "type_name": "int",
+                "description": "2D grid position at which to find the neighbors of a given cell.",
+                "complex_type": false
+              },
+              {
+                "name": "column",
+                "type_name": "int",
+                "description": "2nd dimension of the grid being traversed for finding neighbors.",
+                "complex_type": false
+              }
+            ],
+            "returns": {
+              "type_name": "int",
+              "description": "a list of tuples containing the coordinates of adjacent cells and their count of neighbors.",
+              "complex_type": false
+            },
+            "name": "neighbors",
+            "location": {
+              "start": 125,
+              "insert": 105,
+              "offset": " ",
+              "indent": 4,
+              "comment": {
+                "start": 104,
+                "end": 124
+              }
+            },
+            "item_type": "method",
+            "length": 13,
+            "docLength": 20
+          },
+          {
+            "id": "70a40af2-931f-9e81-6b40-ef61580cd74f",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "Counts the number of cells adjacent to a given cell in a 2D grid. It iterates over the moves array and checks if the cell at the current row and column is 0, incrementing the count if it is.",
+            "params": [
+              {
+                "name": "row",
+                "type_name": "int",
+                "description": "2D location of the cell being analyzed for neighbors.",
+                "complex_type": false
+              },
+              {
+                "name": "column",
+                "type_name": "int",
+                "description": "2D grid position of the cell being analyzed for neighbors, and is used to determine which cells are adjacent to it.",
+                "complex_type": false
+              }
+            ],
+            "returns": {
+              "type_name": "int",
+              "description": "the number of neighbors of a given cell in a grid.",
+              "complex_type": false
+            },
+            "name": "countNeighbors",
+            "location": {
+              "start": 155,
+              "insert": 139,
+              "offset": " ",
+              "indent": 4,
+              "comment": {
+                "start": 138,
+                "end": 154
+              }
+            },
+            "item_type": "method",
+            "length": 9,
+            "docLength": 16
+          },
+          {
+            "id": "dbb7d432-cf38-d092-fe48-69e3d9507583",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "Checks if a cell is an orphan by evaluating its neighbors and confirming that no neighbor has a count of zero.",
+            "params": [
+              {
+                "name": "count",
+                "type_name": "int",
+                "description": "2D grid position being analyzed, and is used to determine whether it is an orphan cell based on its neighbors.",
+                "complex_type": false
+              },
+              {
+                "name": "row",
+                "type_name": "int",
+                "description": "1D coordinate of the cell being analyzed in the grid.",
+                "complex_type": false
+              },
+              {
+                "name": "column",
+                "type_name": "int",
+                "description": "2D coordinate of the current cell being evaluated within the grid.",
+                "complex_type": false
+              }
+            ],
+            "returns": {
+              "type_name": "boolean",
+              "description": "a boolean value indicating whether an orphan block has been detected.",
+              "complex_type": false
+            },
+            "name": "orphanDetected",
+            "location": {
+              "start": 193,
+              "insert": 165,
+              "offset": " ",
+              "indent": 4,
+              "comment": {
+                "start": 164,
+                "end": 192
+              }
+            },
+            "item_type": "method",
+            "length": 11,
+            "docLength": 28
+          },
+          {
+            "id": "03ca7a6d-4b1a-c8b2-ff42-bad4b0e21472",
+            "ancestors": [
+              "7fd13ce5-1856-02b8-8a4d-2362ee414344"
+            ],
+            "description": "Prints the elements of a 2D array `grid`. It iterates through each row and column of the grid, printing each element with a space between them.",
+            "params": [],
+            "name": "printResult",
+            "location": {
+              "start": 205,
+              "insert": 205,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "method",
+            "length": 11,
+            "docLength": null
+          }
+        ]
+      }
+    }
+  }
+]

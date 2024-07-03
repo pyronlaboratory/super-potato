@@ -1,6 +1,20 @@
 package com.thealgorithms.backtracking;
 import java.util.*;
+/**
+ * Is a solver for the classic Sudoku puzzle game. It takes in a 2D grid and finds a
+ * solution to the game by iterating over neighboring cells of a given cell and
+ * increasing the value of that cell if the combined values of the two cells don't
+ * exceed the total value. The class also provides methods for counting the number
+ * of non-zero cells on the same row and column as a given cell, checking if a cell
+ * has no alive neighbors, and printing the final solution to the grid.
+ */
 public class KnightsTour {
+/**
+ * In Java loops through a collection of nodes, counting the number of non-null items
+ * and returning the count.
+ * 
+ * @returns the number of elements in the linked list, up to a maximum value.
+ */
 public int size() {
     restartFromHead: for (;;) {
         int count = 0;
@@ -28,6 +42,19 @@ public int size() {
     
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
+    /**
+     * Creates a two-dimensional grid of size `base x base`, initializes it with negative
+     * values, and then uses randomization to place some positive values on the grid. It
+     * then uses a recursive function `solve` to check if there is a path from a random
+     * row and column to the top-left corner of the grid, and prints the result.
+     * 
+     * @param args 0 or more command-line arguments passed to the Java program when it
+     * is run, which are ignored in this case and have no effect on the function's behavior.
+     * 
+     * * Length: `args.length` is equal to 0 or 1.
+     * * Elements: If `args.length` is greater than 0, each element in the array is a
+     * string representing an optional command-line argument.
+     */
     public static void main(String[] args) {
         grid = new int[base][base];
         total = (base - 4) * (base - 4);
@@ -53,27 +80,20 @@ public int size() {
     }
 
     /**
-     * This function `solve(int row`, `int column`, `int count)` tries to find a solution
-     * to a slitherlink puzzle by iterating over the neighboring cells of a given cell
-     * and increasing the value of that cell if the combined values of the two cells don't
-     * exceed the total value. It returns `true` if a solution is found and `false` otherwise.
+     * Determines whether a given cell is a winner in the game of Sudoku by recursively
+     * traversing the grid, sorting neighboring cells based on their values, and updating
+     * the cell value until a solution is found or no more solutions exist.
      * 
-     * @param row The `row` input parameter represents the row number of a cell on the
-     * grid that is being processed for a potential win. It is used to iterate over the
-     * neighboring cells and find a winning configuration.
+     * @param row 2D coordinate of a cell in the grid, which is used to determine the
+     * neighbors of that cell and to update the value of the cell during the solver process.
      * 
-     * @param column In this function `column` is a parameter that specifies the column
-     * number of the cell being processed. It is used to iterate over the neighbors of a
-     * cell and check if the neighboring cells have the same value as the current cell.
+     * @param column 2nd dimension of the grid, which is used to determine the neighbors
+     * of the current cell and sort them for further processing.
      * 
-     * @param count The `count` input parameter represents the number of alive cell that
-     * we start with. The function uses it to check if a given cell is full (has count >
-     * total) and also when combining cells.
+     * @param count 2D position's current total number of occupied cells, which is used
+     * to determine if a solution exists at that position.
      * 
-     * @returns The function `solve` takes an integer `row`, `column`, and `count` as
-     * input and returns a boolean value indicating whether the game state represented
-     * by the 2D grid `grid` is a valid Sudoku solution for the given `row`, `column`,
-     * and `count`.
+     * @returns a boolean value indicating whether the game is solved.
      */
     
     private static boolean solve(int row, int column, int count) {
@@ -103,24 +123,17 @@ public int size() {
     }
 
     /**
-     * This function `neighbors(int row++, int column++)` returns a list of integer tuples
-     * representing the neighbors of the current position (row and column) on the game
-     * grid. It does so by iterating over a list of valid moves `moves` and counting the
-     * number of neighbors for each position reached by moving from the current position
-     * to the target position.
+     * Computes and returns a list of neighboring cells for a given cell in a grid, based
+     * on the movements allowed by the game. It iterates over possible moves and checks
+     * if the new cell has any neighbors with value 0, and if so, adds the new cell's
+     * coordinates and number of neighboring cells to the list.
      * 
-     * @param row The `row` input parameter specifies the row number of the current cell
-     * being processed. It is used to index into the `grid` array to determine the values
-     * of cells located above or to the left of the current cell.
+     * @param row 2D grid position at which to find the neighbors of a given cell.
      * 
-     * @param column The `column` input parameter specifies the current position on the
-     * grid that is being analyzed for possible moves.
+     * @param column 2nd dimension of the grid being traversed for finding neighbors.
      * 
-     * @returns This function returns a List of integer arrays representing the neighbors
-     * of a given row and column position on a grid. Each integer array has three elements:
-     * the y-coordinate of the neighboring cell (second element), the x-coordinate of the
-     * neighboring cell (first element), and the number of neurons that cell contains
-     * (third element).
+     * @returns a list of tuples containing the coordinates of adjacent cells and their
+     * count of neighbors.
      */
     private static List<int[]> neighbors(int row, int column) {
         List<int[]> neighbour = new ArrayList<>();
@@ -137,20 +150,16 @@ public int size() {
     }
 
     /**
-     * This function counts the number of non-zero cells that are located on the same row
-     * and column as a given cell.
+     * Counts the number of cells adjacent to a given cell in a 2D grid. It iterates over
+     * the moves array and checks if the cell at the current row and column is 0,
+     * incrementing the count if it is.
      * 
-     * @param row The `row` input parameter represents the current cell being evaluated
-     * for neighboring cells. It determines the starting point for the iteration over the
-     * move array.
+     * @param row 2D location of the cell being analyzed for neighbors.
      * 
-     * @param column The `column` input parameter is used to iterate through the rows of
-     * the grid while counting the number of neighboring empty cells. It determines the
-     * current column being examined.
+     * @param column 2D grid position of the cell being analyzed for neighbors, and is
+     * used to determine which cells are adjacent to it.
      * 
-     * @returns The output returned by this function is an integer value that represents
-     * the number of non-zero neighbors of a given cell (row and column) on a grid with
-     * size NxN.
+     * @returns the number of neighbors of a given cell in a grid.
      */
     private static int countNeighbors(int row, int column) {
         int num = 0;
@@ -163,32 +172,17 @@ public int size() {
     }
 
     /**
-     * This function checks if a given cell (row and column) has no alive neighbors (cells
-     * with a value of 1). It does this by iterating over the neighbors of the given cell
-     * and checking if all of their alive neighbors have been cleared. If such a cell is
-     * found (i.e., a cell with no alive neighbors), the function returns true. Otherwise
-     * (if no such cell is found), it returns false.
+     * Checks if a cell is an orphan by evaluating its neighbors and confirming that no
+     * neighbor has a count of zero.
      * 
-     * @param count The `count` input parameter represents the number of mines remaining
-     * to be discovered.
+     * @param count 2D grid position being analyzed, and is used to determine whether it
+     * is an orphan cell based on its neighbors.
      * 
-     * @param row The `row` input parameter specifies the row number of the detected orphan.
+     * @param row 1D coordinate of the cell being analyzed in the grid.
      * 
-     * @param column The `column` parameter represents the column index of the current
-     * cell being evaluated for orphanhood.
+     * @param column 2D coordinate of the current cell being evaluated within the grid.
      * 
-     * @returns This function takes three integers `count`, `row`, and `column` as input
-     * and returns a boolean value indicating whether an orphan node (i.e., a node that
-     * has no neighbors) has been detected.
-     * 
-     * Here's a concise description of the output:
-     * 
-     * 	- If `count < total - 1` (i.e., there are still some neighboring nodes to be
-     * checked), the function checks the neighboring nodes of the current node (`row`, `column`).
-     * 	- If none of the neighbors have any neighbors themselves (i.e., `countNeighbors(nb[0],
-     * nb[1]) == 0`), then an orphan node has been detected and the function returns `true`.
-     * 	- Otherwise (i.e., there is at least one neighbor with neighbors), the function
-     * returns `false`.
+     * @returns a boolean value indicating whether an orphan block has been detected.
      */
     private static boolean orphanDetected(int count, int row, int column) {
         if (count < total - 1) {
@@ -202,6 +196,10 @@ public int size() {
         return false;
     }
 
+    /**
+     * Prints the elements of a 2D array `grid`. It iterates through each row and column
+     * of the grid, printing each element with a space between them.
+     */
     private static void printResult() {
         for (int[] row : grid) {
             for (int i : row) {
