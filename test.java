@@ -28,7 +28,6 @@ public int size() {
     
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
-
     public static void main(String[] args) {
         grid = new int[base][base];
         total = (base - 4) * (base - 4);
@@ -40,7 +39,6 @@ public int size() {
                 }
             }
         }
-
         int row = 2 + (int) (Math.random() * (base - 4));
         int col = 2 + (int) (Math.random() * (base - 4));
 
@@ -52,30 +50,6 @@ public int size() {
             System.out.println("no result");
         }
     }
-
-    /**
-     * This function `solve(int row`, `int column`, `int count)` tries to find a solution
-     * to a slitherlink puzzle by iterating over the neighboring cells of a given cell
-     * and increasing the value of that cell if the combined values of the two cells don't
-     * exceed the total value. It returns `true` if a solution is found and `false` otherwise.
-     * 
-     * @param row The `row` input parameter represents the row number of a cell on the
-     * grid that is being processed for a potential win. It is used to iterate over the
-     * neighboring cells and find a winning configuration.
-     * 
-     * @param column In this function `column` is a parameter that specifies the column
-     * number of the cell being processed. It is used to iterate over the neighbors of a
-     * cell and check if the neighboring cells have the same value as the current cell.
-     * 
-     * @param count The `count` input parameter represents the number of alive cell that
-     * we start with. The function uses it to check if a given cell is full (has count >
-     * total) and also when combining cells.
-     * 
-     * @returns The function `solve` takes an integer `row`, `column`, and `count` as
-     * input and returns a boolean value indicating whether the game state represented
-     * by the 2D grid `grid` is a valid Sudoku solution for the given `row`, `column`,
-     * and `count`.
-     */
     
     private static boolean solve(int row, int column, int count) {
         if (count > total) {
