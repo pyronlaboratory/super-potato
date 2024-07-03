@@ -25,7 +25,6 @@ public int size() {
         {-2, -1},
         {-1, -2},
     }; // Possible moves by knight on chess
-    
     private static int[][] grid; // chess grid
     private static int total; // total squares in chess
     public static void main(String[] args) {
