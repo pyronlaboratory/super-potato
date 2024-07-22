@@ -271,5 +271,215 @@
         ]
       }
     }
+  },
+  {
+    "name": "test.ts",
+    "path": "test.ts",
+    "content": {
+      "structured": {
+        "description": "Several interfaces and types, including `NumberGenerator`, `GenANum`, `Item`, `Person`, `Index`, `Hobbies`, and `PersonWithHobbies`. It also includes a function `updateName` that attempts to re-assign the read-only `name` property of an instance of `Person`, but is prevented from doing so due to the property being declared as read-only.",
+        "items": [
+          {
+            "id": "c522fa03-5dab-31be-814a-8ddc9336c133",
+            "ancestors": [],
+            "description": "Expects a `number` parameter and returns a `number`.",
+            "name": "NumberGenerator",
+            "location": {
+              "start": 1,
+              "insert": 1,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 3,
+            "docLength": null
+          },
+          {
+            "id": "b8e2aef6-be6c-b8b6-5346-235840198266",
+            "ancestors": [],
+            "description": "Takes a `num` parameter of type `number`, and a `gen` parameter of type `NumberGenerator`. The return type is also `number`.",
+            "name": "GenANum",
+            "location": {
+              "start": 4,
+              "insert": 4,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 3,
+            "docLength": null
+          },
+          {
+            "id": "86abdf6b-7e32-31a2-1048-709e53bc352f",
+            "ancestors": [],
+            "description": "Takes a `factor` and a `genFunc` as input, where `genFunc` is a function that generates random numbers, and returns the generated number.",
+            "params": [
+              {
+                "name": "factor",
+                "default_value": null,
+                "optional": false,
+                "type_name": "number",
+                "description": "Used to specify the base for the generated number."
+              },
+              {
+                "name": "genFunc",
+                "default_value": null,
+                "optional": false,
+                "type_name": "NumberGenerator",
+                "description": "Used to generate random numbers within a specified range or distribution."
+              }
+            ],
+            "returns": {
+              "type_name": "number",
+              "description": "Generated using a supplied function `genFunc`."
+            },
+            "usage": {
+              "language": "typescript",
+              "code": "const numGen = new NumberGenerator(10);\ngenerateANumber(10, numGen);\n",
+              "description": ""
+            },
+            "name": "generateANumber",
+            "location": {
+              "start": 7,
+              "insert": 7,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "function",
+            "length": 3,
+            "docLength": null
+          },
+          {
+            "id": "2e2dd2ec-d36d-5ca7-dd4f-3a612a230a9a",
+            "ancestors": [],
+            "description": "Declares a generic type parameter `T`, which represents the data type of the value stored in the interface. The interface defines two properties, `value` of type `T`, and is intended to represent a container for any type of data.",
+            "name": "Item",
+            "location": {
+              "start": 12,
+              "insert": 12,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 3,
+            "docLength": null
+          },
+          {
+            "id": "ec5b9984-6e0c-3db0-4c47-bef3dc87f2fa",
+            "ancestors": [],
+            "description": "Defines a simple data type that represents a person. It consists of two properties: `name`, which is a string, and no other properties.",
+            "name": "Person",
+            "location": {
+              "start": 19,
+              "insert": 19,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 4,
+            "docLength": null
+          },
+          {
+            "id": "613b62ce-3d95-8ba2-3b4c-5594914883ac",
+            "ancestors": [],
+            "description": "Defines a data structure with three properties: `one`, `two`, and a key-value pair (`[key: string]: string | number | boolean`). The `one` property is of type `string`, while the `two` property is of type `number`. The key-value pair allows for any type of value to be stored, including strings, numbers, and booleans.",
+            "name": "Index",
+            "location": {
+              "start": 24,
+              "insert": 24,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 5,
+            "docLength": null
+          },
+          {
+            "id": "4a343939-9f47-569c-e347-0ad701cadef8",
+            "ancestors": [],
+            "description": "Declares two properties: `name`, a read-only `string` property, and `age`, an optional `string` property with the `?` symbol indicating that it may be null or undefined.",
+            "name": "Person",
+            "location": {
+              "start": 30,
+              "insert": 30,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 4,
+            "docLength": null
+          },
+          {
+            "id": "b1bc0ca4-7af2-8cab-5a46-a32a68831ebf",
+            "ancestors": [],
+            "description": "Declares a property `hobbies` of type `string[]`. This means that the `hobbies` property is an array of strings. The `?` symbol after `hobbies` indicates that the property is optional, meaning it can be present or absent in the object.",
+            "name": "Hobbies",
+            "location": {
+              "start": 36,
+              "insert": 36,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 3,
+            "docLength": null
+          },
+          {
+            "id": "17ba1bf6-f958-589c-dd40-42154e6c8d31",
+            "ancestors": [],
+            "description": "In TypeScript extends both the `Person` and `Hobbies` interfaces. This means that any instance of `PersonWithHobbies` must also implement the methods and properties defined by both `Person` and `Hobbies`. Additionally, this interface adds its own set of required or optional properties and methods specific to hobbies, such as `hobbyName`, `hobbyLevel`, and `hobbyDaysPerWeek`. By combining these two interfaces, the `PersonWithHobbies` interface provides a more comprehensive representation of an individual with various hobbies.",
+            "name": "PersonWithHobbies",
+            "location": {
+              "start": 40,
+              "insert": 40,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "interface",
+            "length": 1,
+            "docLength": null
+          },
+          {
+            "id": "9a39131d-1bc5-a982-3a42-eb00329dbcf9",
+            "ancestors": [],
+            "description": "Updates the `name` property of the `Person` object by logging its current value and displaying an error message when attempting to re-assign a new value.",
+            "params": [
+              {
+                "name": "person",
+                "default_value": null,
+                "optional": false,
+                "type_name": "Person",
+                "description": "Used to represent an object containing the name property that can be read but not assigned to."
+              }
+            ],
+            "usage": {
+              "language": "typescript",
+              "code": "updateName({name: \"Coner\"});\n",
+              "description": ""
+            },
+            "name": "updateName",
+            "location": {
+              "start": 47,
+              "insert": 47,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "function",
+            "length": 8,
+            "docLength": null
+          }
+        ]
+      }
+    }
   }
 ]
