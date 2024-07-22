@@ -9,7 +9,6 @@ const generateANumber: GenANum = (factor: number, genFunc: NumberGenerator) => {
 }
 console.log(generateANumber(5, (a:number) => a)) // 5
 console.log(generateANumber(5, () => "Cheese")) // Type Error
-
 interface Item<T> {
   value: T;
 }
